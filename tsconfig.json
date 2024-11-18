@@ -1,0 +1,31 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": ".",
+    // ソースマップ生成する
+    "sourceMap": true,
+    // 厳密な型チェックを有効にする
+    "strict": true,
+    // js組み込みのを指定する
+    "module": "esnext",
+    // "moduleResolution": "bundler",
+    // モジュールの互換性を向上させる
+    "esModuleInterop": true,
+    // JSONファイルを直接importできるようにする
+    "resolveJsonModule": true,
+    // デコレータを有効にする
+    // "experimentalDecorators": true,
+    // "emitDecoratorMetadata": true,
+    // *.d.tsファイルをチェックしない
+    "skipLibCheck": true,
+    // ファイル名の大文字小文字を強制する
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@assets/*": ["src/assets/*"],
+      "@styles/*": ["src/styles/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@consts/*": ["src/*"]
+    }
+  }
+}

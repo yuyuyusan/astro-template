@@ -1,0 +1,81 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Card from '@components/ui/Card.astro';
+import Header from '@components/layouts/Header.astro';
+import Footer from '@components/layouts/Footer.astro';
+import NewsList from '@components/ui/NewsList.astro';
+import Slider from '@components/ui/Slider.astro';
+
+const imageData = [
+  {
+    title: 'Nature',
+    desc: 'Nature',
+    src: 'https://source.unsplash.com/800x600/?nature',
+    alt: 'Nature',
+  },
+  {
+    title: 'Nature',
+    desc: 'Nature',
+    src: 'https://source.unsplash.com/800x600/?water',
+    alt: 'Water',
+  },
+  {
+    title: 'Nature',
+    desc: 'Nature',
+    src: 'https://source.unsplash.com/800x600/?mountain',
+    alt: 'Mountain',
+  },
+];
+---
+
+<Layout title="Welcome to Astro." description="descriptionがはいります">
+  <Header />
+  <main>
+    <section>
+      <h1>Topページ</h1>
+      <Slider>
+        {
+          imageData &&
+            imageData.map((image: { title: string; desc: string; src: string | null; alt: string | null }) => (
+              <li class="splide__slide">
+                <p>{image.title}</p>
+                <p>{image.desc}</p>
+                <img src={image.src} alt={image.alt} loading="lazy" />
+              </li>
+            ))
+        }
+      </Slider>
+    </section>
+    <section>
+      <ul role="list" class="link-card-grid">
+        <Card href="https://docs.astro.build/" title="Documentation" body="Learn how Astro works and explore the official API docs." />
+        <Card href="https://astro.build/integrations/" title="Integrations" body="Supercharge your project with new frameworks and libraries." />
+        <Card href="https://astro.build/themes/" title="Themes" body="Explore a galaxy of community-built starter themes." />
+        <Card href="https://astro.build/chat/" title="Community" body="Come say hi to our amazing Discord community. ❤️" />
+      </ul>
+    </section>
+    <section>
+      <h2>News</h2>
+      <ul role="list">
+        <NewsList title="Newsタイトル2" desc="Newsの抜粋がはいります222" href="" date="2023.03.03" />
+        <NewsList title="Newsタイトル" desc="Newsの抜粋がはいります" href="" date="2022.01.01" />
+      </ul>
+    </section>
+    <Footer />
+  </main>
+
+  <style>
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .link-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+      gap: 2rem;
+      padding: 0;
+    }
+  </style>
+</Layout>

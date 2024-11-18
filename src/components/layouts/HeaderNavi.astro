@@ -1,0 +1,28 @@
+---
+interface Props {
+  href: string;
+  class?: string;
+}
+// propsを渡すためにAstro.propsを展開
+const { href, class: className, ...props } = Astro.props;
+// URLのパス名を取得
+const { pathname } = Astro.url;
+// パス名を正規表現で取得して配列に格納
+const subpath = pathname.match(/[^\/]+/g);
+// console.log(Astro.url);
+// パス名とhrefが一致しているかを判定
+const isActive = href === pathname || href === '/' + subpath?.[0];
+---
+
+<!-- パス名と一致している場合は、activeクラスを付与 -->
+<li class:list={['listItem', className, { active: isActive }]} {...props}>
+  <a href={href}>
+    <slot />
+  </a>
+</li>
+<style>
+  li.active a {
+    font-weight: bolder;
+    text-decoration: underline;
+  }
+</style>

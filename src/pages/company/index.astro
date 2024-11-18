@@ -1,0 +1,20 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Header from '@components/layouts/Header.astro';
+import Footer from '@components/layouts/Footer.astro';
+import { Image } from 'astro:assets';
+import LowerPageTitle from '@components/ui/LowerPageTitle.astro';
+import lowerImage from '@assets/noimage-02.jpg';
+---
+
+<Layout title="Welcome to Astro." description="descriptionがはいります">
+  <Header />
+  <main>
+    <section>
+      <LowerPageTitle mainTitle="COMPANY" subTitle="会社について">
+        <Image src={lowerImage} alt="About" class="lowerImage" />
+      </LowerPageTitle>
+    </section>
+  </main>
+  <Footer />
+</Layout>

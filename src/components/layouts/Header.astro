@@ -1,0 +1,41 @@
+---
+import { SITE_LOGO } from '@consts/consts';
+import HeaderNavi from './HeaderNavi.astro';
+---
+
+<header class="header">
+  <div class="container">
+    <div class="headerLogo">
+      <img src={SITE_LOGO} alt="" />
+    </div>
+    <nav class="headerNav">
+      <ul class="list">
+        <HeaderNavi href="/">HOME</HeaderNavi>
+        <HeaderNavi href="/about">ABOUT</HeaderNavi>
+        <HeaderNavi href="/company">COMPANY</HeaderNavi>
+      </ul>
+    </nav>
+  </div>
+</header>
+<style>
+  .header {
+    height: 80px;
+  }
+  .container {
+    height: 100%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+  }
+  .headerLogo {
+    width: 160px;
+  }
+  .headerNav {
+    margin-left: auto;
+    .list {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+  }
+</style>

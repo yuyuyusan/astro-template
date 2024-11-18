@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string;
+  desc: string;
+  href: string;
+  date: string;
+}
+const { title, desc, href } = Astro.props;
+// 日本語の日付にする
+const updatedDate = new Date(Astro.props.date).toLocaleDateString('ja-JP', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+console.log(updatedDate);
+---
+
+<li class="link-card">
+  <a href={href}>
+    <h2>
+      {title}
+      <span>&rarr;</span>
+    </h2>
+    <p class="desc">{desc}</p>
+    <p class="date">{updatedDate}</p>
+  </a>
+</li>

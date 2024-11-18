@@ -1,0 +1,40 @@
+---
+interface Props {
+  mainTitle: string;
+  subTitle: string;
+}
+const { mainTitle, subTitle } = Astro.props;
+---
+
+<div class="container">
+  <h1 class="pageTitle">
+    <span class="mainTitle">{mainTitle}</span>
+    <span class="subTitle">{subTitle}</span>
+  </h1>
+  <div class="pageTitleImage">
+    <slot />
+  </div>
+</div>
+<style>
+  .container {
+    height: 400px;
+    display: flex;
+  }
+  .pageTitle {
+    width: 400px;
+    text-align: center;
+    display: grid;
+    place-content: center;
+    .mainTitle {
+      display: block;
+      font-size: 48px;
+    }
+    .subTitle {
+      display: block;
+      font-size: 16px;
+    }
+  }
+  .pageTitleImage {
+    width: calc(100% - 400px);
+  }
+</style>
