@@ -1,0 +1,122 @@
+---
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+// import 'swiper/css/pagination';
+---
+
+<script>
+  import Swiper from 'swiper';
+  import 'swiper/css/bundle';
+  import { Autoplay, Parallax, Navigation } from 'swiper/modules';
+  import { gsap } from 'gsap';
+
+  const swiper = new Swiper('.swiper', {
+    modules: [Autoplay, Parallax, Navigation],
+    slidesPerView: 1,
+    spaceBetween: 0,
+    loop: true,
+    loopAdditionalSlides: 1,
+    parallax: true,
+    speed: 1500,
+    autoplay: {
+      delay: 5000,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    on: {
+      slideChangeTransitionStart: () => {
+        gsap.from('.bg h2', {
+          y: '100px',
+          duration: 1,
+        });
+        gsap.from('.item', {
+          y: '100px',
+          duration: 0.8,
+          delay: 0.1,
+          stagger: {
+            each: 0.1,
+          },
+        });
+      },
+    },
+  });
+</script>
+<div class="swiper">
+  <div class="swiper-wrapper">
+    <slot />
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-scrollbar"></div>
+</div>
+<style>
+  .swiper {
+    width: 70vw;
+    height: 500px;
+  }
+  .swiper-slide {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .swiper-container {
+    position: relative;
+    width: 100%;
+  }
+  .image {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .bg {
+    width: 50%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    &.bg-0 {
+      background: orange;
+    }
+    &.bg-1 {
+      background: blue;
+    }
+    &.bg-2 {
+      background: purple;
+    }
+    &.bg-3 {
+      background: red;
+    }
+    &.bg-4 {
+      background: black;
+    }
+  }
+  .bg-title {
+    overflow: hidden;
+  }
+  ul {
+    display: flex;
+    gap: 8px;
+    overflow: hidden;
+  }
+  li {
+    list-style: none;
+  }
+</style>

@@ -1,1 +1,1 @@
-export const SITE_LOGO = './logo_01.png';
+export const SITE_LOGO = '/logo_01.png';

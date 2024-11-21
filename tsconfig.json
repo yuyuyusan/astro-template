@@ -1,6 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "target": "ES2022",
     "baseUrl": ".",
     // ソースマップ生成する
     "sourceMap": true,
@@ -25,7 +26,8 @@
       "@assets/*": ["src/assets/*"],
       "@styles/*": ["src/styles/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@consts/*": ["src/*"]
+      "@consts/*": ["src/*"],
+      "@libs/*": ["src/libs/*"]
     }
   }
 }
