@@ -15,7 +15,7 @@ npm run dev
 
 ## Flow
 
-ビルドして、distフォルダの中身をアップする
+ビルドして、distフォルダの中身をホスティングする
 
 ```sh
 npm run build
@@ -28,27 +28,46 @@ TypeScript
 ## 🚀 Project Structure
 
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── assets/
-│   │   └── noimage-01.jpg
-│   ├── components/
-│   │   └── Card.astro
-│   │   └── Header.astro
-│   │   └── Footer.astro
-│   │   └── LowerMainTitle.astro
-│   │   └── HeaderNavi.astro
-│   ├── layouts/
+.
+├── README.md
+├── astro.config.mjs
+├── package-lock.json
+├── package.json
+├── public
+│   ├── favicon.svg
+│   └── logo_01.png
+├── src
+│   ├── assets
+│   │   ├── noimage-01.jpg
+│   │   ├── noimage-02.jpg
+│   │   └── noimage-03.jpg
+│   ├── components
+│   │   ├── BaseHead.astro
+│   │   ├── layouts
+│   │   │   ├── Footer.astro
+│   │   │   ├── Header.astro
+│   │   │   └── HeaderNavi.astro
+│   │   └── ui
+│   │       ├── Card.astro
+│   │       ├── LowerPageTitle.astro
+│   │       ├── NewsList.astro
+│   │       ├── Slider.astro
+│   │       ├── SliderComponent.astro
+│   │       └── SliderItems.astro
+│   ├── consts.ts
+│   ├── env.d.ts
+│   ├── layouts
 │   │   └── Layout.astro
-│   ├── styles/
-│   │   └── global.css
-│   └── pages/
-│       └── index.astro
-│       └── about/
-│           └── index.astro
-└── package.json
+│   ├── pages
+│   │   ├── 404.astro
+│   │   ├── about
+│   │   │   └── index.astro
+│   │   ├── company
+│   │   │   └── index.astro
+│   │   └── index.astro
+│   └── styles
+│       └── global.css
+└── tsconfig.json
 ```
 
 ## 🧞 Commands
